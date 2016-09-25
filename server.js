@@ -5,12 +5,60 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var Articleone = {
+    title: "Article One ! - HAHAHAHA",
+    heading: "ARTICLE ONE",
+    date: "25 Sep, 2016",
+    content:
+        `<p>
+            HELLO GUYS, WELCOME TO ARTICLE ONE
+        </p>`
+};
+
+function createCommon (data) {
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.date;
+    var content = data.content;
+
+                                var Common = 
+                                                `<html>
+                                                    <head>
+                                                        <title>
+                                                            ${title}
+                                                        </title>
+                                                        <meta name = "viewport" content="width=device-width, initail-scale=1"/>
+                                                        <link href="/ui/style.css" rel="stylesheet" />
+                                                    </head>
+                                                    <body>
+                                                        <div class="container">
+                                                            <div>
+                                                                <a href = "/">Home</a>
+                                                            </div>
+                                                            <hr/>
+                                                            <h3>
+                                                                ${heading}
+                                                            </h3>
+                                                            <div>
+                                                                ${date}
+                                                            </div>
+                                                            <div>
+                                                                <p>
+                                                                    ${content}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </body>
+                                                </html>`;
+                                                return Common;
+                            }
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/Article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'Article-one.html'));
+  res.send(createCommon(Articleone));
 });
 
 app.get('/Article-two', function (req, res) {
