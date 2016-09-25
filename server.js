@@ -5,14 +5,34 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var Articleone = {
-    title: "Article One ! - HAHAHAHA",
-    heading: "ARTICLE ONE",
-    date: "25 Sep, 2016",
-    content:
-        `<p>
-            HELLO GUYS, WELCOME TO ARTICLE ONE
-        </p>`
+var Articles = {
+    'Article-one' : {
+        title: "Article One ! - HAHAHAHA",
+        heading: "ARTICLE ONE",
+        date: "25 Sep, 2016",
+        content:
+            `<p>
+                HELLO GUYS, WELCOME TO ARTICLE ONE
+            </p>`
+    },
+    'Article-two' : {
+        title: "Article Two ! - LOLOLOL",
+        heading: "ARTICLE TWO",
+        date: "25 Sep, 2016",
+        content:
+            `<p>
+                HELLO GUYS, WELCOME TO ARTICLE TWO
+            </p>`
+    },
+    'Article-three' : {
+        title: "Article THREE ! - END",
+        heading: "ARTICLE THREE",
+        date: "25 Sep, 2016",
+        content:
+            `<p>
+                HELLO GUYS, WELCOME TO ARTICLE THREE
+            </p>`
+    },
 };
 
 function createCommon (data) {
@@ -57,16 +77,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/Article-one', function (req, res) {
-  res.send(createCommon(Articleone));
-});
-
-app.get('/Article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'Article-two.html'));
-});
-
-app.get('/Article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'Article-three.html'));
+app.get('/:Articlename', function (req, res) {
+    var Articlename = req.params.Articlename;
+  res.send(createCommon(Articles[Articlename]));
 });
 
 app.get('/ui/style.css', function (req, res) {
