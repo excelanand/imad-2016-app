@@ -1,7 +1,7 @@
 console.log('Loaded!');
 var img = document.getElementById("MAHI");
 var marginLeft = 0;
-function moveRight = ()
+function moveRight ()
 {
     marginLeft = marginLeft + 5;
     img.style.marginLeft = marginLeft + 'px';
