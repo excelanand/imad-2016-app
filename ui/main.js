@@ -27,7 +27,7 @@ button.onclick = function() {
   request.open('GET','http://excelanand.imad.hasura-app.io/counter',true);
   request.send(null);
 };
-
+var counter = 0;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function() {
     var request = new XMLHttpRequest();
