@@ -9,7 +9,7 @@ function moveRight ()
 img.onclick = function ()
 {
     var interval = setInterval(moveRight, 50);
-}
+};
 var button = document.getElementById('counter');
 button.onclick = function() {
     var request = new XMLHttpRequest();
@@ -27,7 +27,6 @@ button.onclick = function() {
   request.open('GET','http://excelanand.imad.hasura-app.io/counter',true);
   request.send(null);
 };
-var counter = 0;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function() {
     var request = new XMLHttpRequest();
