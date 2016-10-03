@@ -9,7 +9,7 @@ function moveRight ()
 img.onclick = function ()
 {
     var interval = setInterval(moveRight, 50);
-};
+}
 var button = document.getElementById('counter');
 button.onclick = function() {
     var request = new XMLHttpRequest();
@@ -19,7 +19,7 @@ button.onclick = function() {
             if(request.status === 200)
             {
                 var counter = request.responseText;
-                var span = document.getElementById('count');
+                var span = document.getElementById("count");
                 span.innerHTML = counter.toString();
             }
         }
